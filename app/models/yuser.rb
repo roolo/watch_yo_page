@@ -1,0 +1,2 @@
+class Yuser < ApplicationRecord
+end
