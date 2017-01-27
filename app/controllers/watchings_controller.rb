@@ -1,4 +1,5 @@
 class WatchingsController < ApplicationController
+  layout 'yo'
   before_action :set_watching, only: [:show, :edit, :update, :destroy]
 
   # GET /watchings

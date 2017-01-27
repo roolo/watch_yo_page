@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  color: #FFFFFF;
+  background-color: #9B59B6;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+body { margin: 0; }
+
+#watchings-list {
+  padding: 0;
+}
+
+.watchings-item {
+  height: 89px;
+  list-style-type: none;
+  font-size: 70px;
+  overflow-x: scroll;
+}

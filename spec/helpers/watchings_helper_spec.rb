@@ -1,15 +1,30 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the WatchingsHelper. For example:
-#
-# describe WatchingsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
+# the WatchingsHelper.
 RSpec.describe WatchingsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#shorten_text' do
+    let(:shortened_text) do
+      shorten_text(
+        'HTTP://MAILO.SVETEL.CZ/blog/learning-tips/how-to-be-a-better-writer--cut-out-the-sludge?trk=li_google_corp_' \
+        'Learning'
+      )
+    end
+
+    it 'leaves some text' do
+      expect(shortened_text).not_to be_empty
+    end
+
+    it 'removes scheme' do
+      expect(shortened_text).not_to match /^http/i
+    end
+
+    it 'adds tripledot for long text' do
+      expect(shortened_text).to end_with '...'
+    end
+
+    it 'actually shortens url :)' do
+      expect(shortened_text.length).to be <= 30
+    end
+  end
 end

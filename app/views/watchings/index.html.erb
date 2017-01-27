@@ -2,26 +2,10 @@
 
 <h1>Watchings</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<ul id="watchings-list">
     <% @watchings.each do |watching| %>
-      <tr>
-        <td><%= watching.url %></td>
-        <td><%= link_to 'Show', watching %></td>
-        <td><%= link_to 'Edit', edit_watching_path(watching) %></td>
-        <td><%= link_to 'Destroy', watching, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <li class="watchings-item" style="background-color: <%= cycle yo_colors %>">
+        <%= shorten_text watching.url %>
+      </li>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Watching', new_watching_path %>
+</ul>
