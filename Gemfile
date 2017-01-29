@@ -46,6 +46,7 @@ group :test do
   gem 'factory_girl_rails', '~> 4.8.0'
   gem 'rails-controller-testing', '~> 1.0.1'
   gem 'webmock', '~> 2.3.2'
+  gem 'database_cleaner', '~> 1.5.3'
 end
 
 group :development do
