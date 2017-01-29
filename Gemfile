@@ -43,7 +43,9 @@ group :development, :test do
 end
 
 group :test do
-  gem 'webmock'
+  gem 'factory_girl_rails', '~> 4.8.0'
+  gem 'rails-controller-testing', '~> 1.0.1'
+  gem 'webmock', '~> 2.3.2'
 end
 
 group :development do
