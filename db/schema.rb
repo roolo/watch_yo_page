@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127211402) do
+ActiveRecord::Schema.define(version: 20170129184740) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(version: 20170127211402) do
     t.text     "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "watchings_yusers", force: :cascade do |t|
+    t.integer "watching_id"
+    t.integer "yuser_id"
+    t.index ["watching_id"], name: "index_watchings_yusers_on_watching_id"
+    t.index ["yuser_id"], name: "index_watchings_yusers_on_yuser_id"
   end
 
   create_table "yusers", force: :cascade do |t|
