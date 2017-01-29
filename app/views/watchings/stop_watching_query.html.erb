@@ -1,0 +1,18 @@
+<ul id="watchings-list">
+  <li class="watchings-item" style="background-color: <%= yo_colors.sample %>">
+    <%= shorten_text @watching.url %>
+  </li>
+</ul>
+
+<p>
+  Do you really want to destroy watching of this url?
+</p>
+
+
+<ul id="watchings-list">
+  <li class="watchings-item watchings-item-button">
+    <%= link_to 'Yes', stop_watching_watching_path(@watching, username: @current_user.username, method: :delete)  %>
+  </li>
+</ul>
+
+

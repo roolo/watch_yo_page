@@ -1,6 +1,6 @@
 class WatchingsController < ApplicationController
   layout 'yo'
-  before_action :set_watching, only: [:show, :edit, :update, :destroy]
+  before_action :set_watching, only: [:show, :edit, :update, :stop_watching_query, :stop_watching, :destroy]
 
   # GET /watchings
   # GET /watchings.json
@@ -52,6 +52,18 @@ class WatchingsController < ApplicationController
     end
   end
 
+  def stop_watching_query
+  end
+
+  def stop_watching
+    @current_user.watchings.delete @watching
+
+    respond_to do |format|
+      format.html { redirect_to watchings_url(username: @current_user.username), notice: 'Watching was successfully stopped.' }
+      format.json { head :no_content }
+    end
+  end
+
   # DELETE /watchings/1
   # DELETE /watchings/1.json
   def destroy
@@ -66,6 +78,12 @@ class WatchingsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_watching
       @watching = Watching.find(params[:id])
+
+      if @watching.nil?
+        Watching.create! url: watching_params[:url]
+      end
+
+      @watching
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
