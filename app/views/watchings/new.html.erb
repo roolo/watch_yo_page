@@ -1,5 +1,19 @@
-<h1>New Watching</h1>
+<ul id="watchings-list">
+  <li class="watchings-item" style="background-color: <%= yo_colors.sample %>">
+    <%= shorten_text @watching.url %>
+  </li>
+</ul>
 
-<%= render 'form', watching: @watching %>
+<p>
+  Do you want to start watching this url?
+</p>
 
-<%= link_to 'Back', watchings_path %>
+<%= form_for @watching, url: watchings_path(username: @current_user.username) do |f| %>
+  <%= f.hidden_field :url, value: @watching.url %>
+  <%= f.hidden_field :username, value: @current_user.username %>
+  <ul id="watchings-list">
+    <li class="watchings-item watchings-item-button">
+      <%= f.submit 'Yes', class: :yo_button %>
+    </li>
+  </ul>
+<% end %>

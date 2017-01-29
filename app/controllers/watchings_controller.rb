@@ -5,7 +5,7 @@ class WatchingsController < ApplicationController
   # GET /watchings
   # GET /watchings.json
   def index
-    @watchings = Watching.all
+    @watchings = @current_user.watchings
   end
 
   # GET /watchings/1
@@ -15,7 +15,7 @@ class WatchingsController < ApplicationController
 
   # GET /watchings/new
   def new
-    @watching = Watching.new
+    @watching = Watching.new url: link_param
   end
 
   # GET /watchings/1/edit
@@ -25,11 +25,14 @@ class WatchingsController < ApplicationController
   # POST /watchings
   # POST /watchings.json
   def create
-    @watching = Watching.new(watching_params)
+    @watching = Watching.find_or_create_by!(watching_params)
 
     respond_to do |format|
-      if @watching.save
-        format.html { redirect_to @watching, notice: 'Watching was successfully created.' }
+      if @current_user.watchings << @watching
+        format.html {
+          redirect_to watchings_path(username: @current_user.username),
+                      notice: 'Watching was successfully created.'
+        }
         format.json { render :show, status: :created, location: @watching }
       else
         format.html { render :new }
@@ -89,5 +92,9 @@ class WatchingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def watching_params
       params.require(:watching).permit(:url)
+    end
+
+    def link_param
+      params.require(:link)
     end
 end
