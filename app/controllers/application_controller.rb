@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def load_user
-    @current_user = Yuser.find_by username: user_param
+    @current_user = Yuser.find_or_create_by username: user_param
   end
 
   def user_param

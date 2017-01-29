@@ -4,10 +4,6 @@ RSpec.describe YoReceiverController, type: :controller do
   let(:yo_username) { 'LIPOQIL' }
   let(:yo_params) { { username: yo_username, user_ip: '172.31.13.173' } }
 
-  before :all do
-
-  end
-
   describe 'GET #prepare' do
     it 'returns http success' do
       # /yo_receiver/prepare?username=LIPOQIL&user_ip=172.31.13.173
@@ -59,7 +55,7 @@ RSpec.describe YoReceiverController, type: :controller do
         Watching.create url: watched_url
 
         link_preparation = subject.prepare_link yo_username, watched_url
-        expect(link_preparation).to eq 'destroy_query_path'
+        expect(link_preparation).to be true
       end
     end
 

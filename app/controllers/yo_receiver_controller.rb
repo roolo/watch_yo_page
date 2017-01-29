@@ -10,19 +10,25 @@ class YoReceiverController < ApplicationController
   end
 
   def prepare_link(username, link)
-    watching = Watching.find_by url: link
+    watching = Watching.joins(:yusers).find_by url: link, yusers: { username: username }
+
+    link_params = {
+      username:   username,
+      link:       URI.encode(link),
+      only_path:  false
+    }
 
     if watching.nil?
-      YO.yo username,
-            link: new_watching_url(username: username, link: URI.encode(link), only_path: false)
+      yo_link = new_watching_url link_params
     else
-      'destroy_query_path'
+      yo_link = stop_watching_query_watching_url link_params
     end
 
+    YO.yo username,
+          link: yo_link
   end
 
   # This action is visited on first Yo from Yuser
   def subscribed
-    Yuser.find_or_create_by username: params[:username]
   end
 end
