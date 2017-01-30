@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
@@ -16,7 +17,7 @@ RSpec.describe WatchingsHelper, type: :helper do
     end
 
     it 'removes scheme' do
-      expect(shortened_text).not_to match /^http/i
+      expect(shortened_text).not_to match(/^http/i)
     end
 
     it 'adds tripledot for long text' do

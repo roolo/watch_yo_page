@@ -1,5 +1,9 @@
-class Yuser < ApplicationRecord
-  has_and_belongs_to_many :watchings
+# frozen_string_literal: true
 
-  validates_presence_of :username
+# Model handling work with users from Yo service
+class Yuser < ApplicationRecord
+  has_many :watchings, through: :watchings_yusers
+  has_many :watchings_yusers
+
+  validates :username, presence: true
 end

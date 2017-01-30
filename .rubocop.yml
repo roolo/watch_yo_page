@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - db/schema.rb
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+Metrics/LineLength:
+  Max: 120
+Rails:
+  Enabled: true
+Style/Documentation:
+  Exclude:
+    - db/migrate/*.rb
+    - spec/**/*
+    - test/**/*
+Style/MethodDefParentheses:
+  Enabled: false

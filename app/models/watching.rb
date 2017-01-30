@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
+# Model for watchings
 class Watching < ApplicationRecord
-  has_and_belongs_to_many :yusers
+  has_many :yusers, through: :watchings_yusers
+  has_many :watchings_yusers
 
-  validates_presence_of   :url
-  validates_uniqueness_of :url
-  validates_format_of     :url, with: /\Ahttp/i
-
+  validates :url, format: /\Ahttp/i, presence: true, uniqueness: true
 end

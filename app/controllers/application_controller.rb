@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# Base class for application's Controllers
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
@@ -12,5 +15,4 @@ class ApplicationController < ActionController::Base
   def user_param
     params.require(:username)
   end
-
 end

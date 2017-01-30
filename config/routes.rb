@@ -1,6 +1,5 @@
+# frozen_string_literal: true
 Rails.application.routes.draw do
-
-
   constraints username: /^\w+$/i do
     constraints token: /^[\w\d\-]+$/i do
       resources :watchings do

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe YoReceiverController, type: :controller do
@@ -12,15 +13,14 @@ RSpec.describe YoReceiverController, type: :controller do
     end
 
     context 'with link' do
-      let(:yo_params_with_link) {
-        yo_params.merge(link: URI.escape('https://www.paralelnipolis.cz/program/transhumanismus/'))
-      }
+      let(:yo_params_with_link) do
+        yo_params.merge(link: URI.encode('https://www.paralelnipolis.cz/program/transhumanismus/'))
+      end
 
       it 'sends >new< watching link for new link' do
         expect(subject).to receive :prepare_link
         get :prepare, params: yo_params_with_link
       end
-
     end
   end
 
@@ -31,16 +31,17 @@ RSpec.describe YoReceiverController, type: :controller do
     end
 
     it 'creates user' do
-      expect {
+      expect do
         get :subscribed, params: yo_params
-      }.to change{ Yuser.count }.by 1
+      end.to change { Yuser.count }.by 1
     end
   end
 
   describe '#prepare_link' do
-    let(:yo_params_with_link) {
-      yo_params.merge(link: URI.escape('https://www.paralelnipolis.cz/program/transhumanismus/'))
-    }
+    let(:yo_params_with_link) do
+      yo_params.merge(link: URI.encode('https://www.paralelnipolis.cz/program/transhumanismus/'))
+    end
+    let(:yo_username) { 'LIPOQIL' }
 
     context 'for new watching' do
       it 'sends >new< watching link for new link' do
@@ -58,9 +59,5 @@ RSpec.describe YoReceiverController, type: :controller do
         expect(link_preparation).to be true
       end
     end
-
-
-
   end
-
 end
