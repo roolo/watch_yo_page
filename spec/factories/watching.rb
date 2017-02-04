@@ -2,9 +2,12 @@
 FactoryGirl.define do
   factory :watching do
     sequence :url do |n|
-      format 'HTTP://MAILO.SVETEL.CZ/blog/learning-tips/%s/how-to-be-a-better-writer--cut-out-the-sludge?trk='\
-              'li_google_corp_Learning',
-             n.to_s
+      format 'https://m.novinky.cz/articleDetails?aId=42744%d&sId&mId',
+             n
+    end
+
+    trait :with_subscription do
+      yusers { [FactoryGirl.create(:yuser)] }
     end
   end
 end

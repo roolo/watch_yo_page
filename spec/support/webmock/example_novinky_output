@@ -1,0 +1,41 @@
+HTTP/1.1 500 Internal Server Error
+Date: Sat, 04 Feb 2017 18:53:47 GMT
+Content-Type: text/html; charset=utf-8
+Content-Length: 1996
+Connection: keep-alive
+Server: Apache
+Set-Cookie: sznu=5wWqZT0paANxFczW; Domain=m.novinky.cz; expires=Sat, 04 Feb 2017 21:53:47 GMT; Path=/
+Cache-Control: max-age=0, no-cache, must-revalidate
+Pragma: no-cache
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+        <title>Seznam na mobil - Chyba</title><link rel="shortcut icon" href="/images/favicon.ico" />
+        <style type="text/css">* {margin:0;padding:0, font-family: sans-serif;}body {font-size:small;}div, p {clear:both;}.logo{margin-left:2%;}p {padding:2px;}a {color:blue;}a:active {color:white;}.pruhd a, .pruh a {color:black;}.pruh, .pruhd {color:black; background-color:#C3E2FF; padding:3px 2%; margin:1ex 0;}.Text {font-weight:bold; margin:2px 2%;}.pruh{font-weight:bold; border-top:1px solid #6699CC;}.pruhd {text-align:center; border-bottom:1px solid #6699CC;}.LRLink, .footer{text-align:center;}.S, .eznam {font-size:x-large;}.S {color:red;}.eznam {color:black;}</style>
+    </head>
+    <body>
+        <div class="page">
+            <div class="logo">
+                <span class="S">S</span><span class="eznam">eznam.cz</span>
+            </div>
+            <div class="pruh">Chyba</div>
+            <div class="Text">
+                <p>Omlouváme se, v tuto chvíli je služba nedostupná. Opakujete dotaz nebo to zkuste později.</p>
+                <p>Pokud problém přetrvává, kontaktujte <a href ="//m.seznam.cz/helpdesk?referer=&amp;srvc=novinky-userweb">helpdesk</a>.</p>
+            </div>
+            <div class="pruhd">
+                <div class="LRLink">
+                    <a href="/?_from500=1&amp;sznu=5wWqZT0paANxFczW&amp;sessId=">Hlavní stránka</a>
+                </div>
+            </div>
+            <p class="footer">
+                <a href="//m.seznam.cz/?sznu=5wWqZT0paANxFczW&amp;sessId=">Domů</a>
+                &nbsp;|&nbsp;
+                <a href="/about?sznu=5wWqZT0paANxFczW">&copy;&nbsp;Seznam.cz, a.s.</a></p>
+        </div>
+    </body>
+</html>
+

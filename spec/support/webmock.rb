@@ -18,5 +18,14 @@ RSpec.configure do |config|
         body: '{"success": true, "yo_id": "55135e09f663d1000aed924c"}',
         headers: {}
       )
+
+    stub_request(:get, 'https://m.novinky.cz/articleDetails?aId=427441&mId&sId')
+      .with(headers: {
+              'Accept' => '*/*',
+              'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+              'Host' => 'm.novinky.cz',
+              'User-Agent' => 'Ruby'
+            })
+      .to_return(File.read('spec/support/webmock/example_novinky_output'))
   end
 end
