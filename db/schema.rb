@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129184740) do
+ActiveRecord::Schema.define(version: 20170204191612) do
 
   create_table "auth_tokens", force: :cascade do |t|
     t.string   "token"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20170129184740) do
     t.text     "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "hash_sum"
   end
 
   create_table "watchings_yusers", force: :cascade do |t|
